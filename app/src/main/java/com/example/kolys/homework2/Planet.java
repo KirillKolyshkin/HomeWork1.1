@@ -5,7 +5,7 @@ public class Planet {
     private String name;
     private String discription;
     private String weight;
-    private String temp;
+    private int temp;
 
     public String getWeight() {
         return weight;
@@ -15,11 +15,11 @@ public class Planet {
         this.weight = weight;
     }
 
-    public String getTemp() {
+    public int getTemp() {
         return temp;
     }
 
-    public void setTemp(String temp) {
+    public void setTemp(int temp) {
         this.temp = temp;
     }
 
@@ -33,7 +33,7 @@ public class Planet {
 
     private String distance;
 
-    public Planet(int photoResId, String name, String discription, String weight, String temp, String distance) {
+    public Planet(int photoResId, String name, String discription, String weight, int temp, String distance) {
         this.photoResId = photoResId;
         this.name = name;
         this.discription = discription;

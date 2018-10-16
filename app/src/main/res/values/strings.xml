@@ -2,4 +2,9 @@
     <string name="app_name">HomeWork2</string>
     <string name="photo">Photo</string>
     <string name="title_activity_planet_details">PlanetDetails</string>
+    <string name="list">List</string>
+    <string name="pager">Pager</string>
+    <string name="system">Solar system</string>
+    <string name="hello_blank_fragment">Hello Nail!!!</string>
+    <string name="title_home">Home</string>
 </resources>
