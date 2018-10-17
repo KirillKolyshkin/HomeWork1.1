@@ -26,6 +26,7 @@
             android:name=".WakeUpActivity"
             android:label="@string/title_activity_wake_up"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <receiver android:name=".TimeNotification" />
     </application>
 
 </manifest>
