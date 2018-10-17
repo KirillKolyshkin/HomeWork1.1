@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HomeWork2</string>
+    <string name="title_activity_wake_up">WakeUpActivity</string>
+    <string name="str_wake_up_message">sorry, you still Alive</string>
+    <string name="time_in_sec">time in sec</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
 </resources>
