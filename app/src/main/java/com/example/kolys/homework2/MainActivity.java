@@ -34,22 +34,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stop_btn = findViewById(R.id.btn_stop);
         start_btn.setOnClickListener(this);
         stop_btn.setOnClickListener(this);
-        registerAlarmBroadcast();
     }
 
     @Override
     public void onClick(View v) {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, TimeNotification.class);
+        Intent intent = new Intent(this, TimeNotificationReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0,
-                intent, PendingIntent.FLAG_CANCEL_CURRENT );
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         switch (v.getId()) {
             case R.id.btn_start:
                 if (!time_et.getText().toString().isEmpty()) {
                     tv_chooesen_time.setText(time_et.getText().toString());
                     int time = Integer.parseInt(time_et.getText().toString());
-                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + time*1000, pendingIntent);
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + time * 1000, pendingIntent);
                 } else {
                     Toast.makeText(this, "Enter time!", Toast.LENGTH_LONG).show();
                 }
@@ -64,18 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         unregisterReceiver(mReceiver);
         super.onDestroy();
-    }
-
-    private void registerAlarmBroadcast() {
-        mReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context, "Alarm time has been reached", Toast.LENGTH_LONG).show();
-            }
-        };
-        registerReceiver(mReceiver, new IntentFilter("sample"));
-        pendingIntent = PendingIntent.getBroadcast(this, 0, new Intent("sample"), 0);
-        alarmManager = (AlarmManager) (this.getSystemService(Context.ALARM_SERVICE));
     }
 
 }
