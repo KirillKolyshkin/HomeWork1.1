@@ -13,9 +13,7 @@ import android.view.ViewGroup;
  */
 public class GalaxyTitleFragment extends Fragment {
 
-
     public GalaxyTitleFragment() {
-        // Required empty public constructor
     }
 
     public static GalaxyTitleFragment newInstance() {

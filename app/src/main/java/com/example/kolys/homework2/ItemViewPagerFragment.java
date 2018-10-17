@@ -30,20 +30,14 @@ public class ItemViewPagerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
-
-        //Random rnd = new Random();
-        //backColor = Color.argb(40, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_view_pager, null);
-
         TextView tvPage = (TextView) view.findViewById(R.id.tvPage);
         tvPage.setText("Page " + pageNumber);
-        //tvPage.setBackgroundColor(backColor);
-
         return view;
     }
 }

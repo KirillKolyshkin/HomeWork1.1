@@ -34,12 +34,19 @@ public class RecyclerFragment extends Fragment {
     public RecyclerFragment() {
     }
 
+    public static RecyclerFragment newInstance() {
+        Bundle args = new Bundle();
+        RecyclerFragment fragment = new RecyclerFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler, container, false);
         recyclerView = v.findViewById(R.id.recycler_view);
         fillTestData();
-        recyclerAdapter = new RecyclerAdapter(planets);
+        recyclerAdapter = new RecyclerAdapter(new RecycleDiffCallBack(), planets);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(v.getContext());
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setLayoutManager(manager);
@@ -65,6 +72,7 @@ public class RecyclerFragment extends Fragment {
                         planet1.getName().compareTo(planet2.getName())//.charAt(6) - planet2.getName().charAt(6)
                 );
                 recyclerAdapter.submitList(planets);
+                recyclerAdapter.notifyDataSetChanged();
                 Toast.makeText(getContext(), "Name", Toast.LENGTH_LONG).show();
                 break;
             case R.id.sort_by_temp:
@@ -72,19 +80,11 @@ public class RecyclerFragment extends Fragment {
                         planet1.getTemp() - planet2.getTemp()
                 );
                 recyclerAdapter.submitList(planets);
+                recyclerAdapter.notifyDataSetChanged();
                 Toast.makeText(getContext(), "Temp", Toast.LENGTH_LONG).show();
                 break;
         }
         return true;
-    }
-
-    public static RecyclerFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        RecyclerFragment fragment = new RecyclerFragment();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     private void fillTestData() {

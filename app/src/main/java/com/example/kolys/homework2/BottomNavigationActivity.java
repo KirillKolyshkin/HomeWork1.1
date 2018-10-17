@@ -42,7 +42,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
                                 .beginTransaction()
                                 .replace(R.id.container, fragment)
                                 .commit();
-                        return false;
+                        return true;
                     }
                 });
     }

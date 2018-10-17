@@ -24,6 +24,15 @@ public class ViewPagerFragment extends Fragment {
     ViewPager pager;
     PagerAdapter pagerAdapter;
 
+    public static ViewPagerFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,15 +57,6 @@ public class ViewPagerFragment extends Fragment {
             }
         });
         return v;
-    }
-
-    public static ViewPagerFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        ViewPagerFragment fragment = new ViewPagerFragment();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
