@@ -19,11 +19,10 @@ import java.util.List;
 
 public class RecyclerAdapter extends android.support.v7.recyclerview.extensions.ListAdapter<Planet, RecyclerAdapter.PlanetViewHolder> {
 
-    ArrayList<Planet> planets;
+    private List<Planet> planets;
 
-    public RecyclerAdapter(@NonNull DiffUtil.ItemCallback<Planet> diffCallback, ArrayList<Planet> planets) {
+    public RecyclerAdapter(@NonNull DiffUtil.ItemCallback<Planet> diffCallback) {
         super(diffCallback);
-        this.planets = planets;
     }
 
     @NonNull
@@ -36,15 +35,10 @@ public class RecyclerAdapter extends android.support.v7.recyclerview.extensions.
 
     @Override
     public void onBindViewHolder(@NonNull PlanetViewHolder planetViewHolder, int i) {
-        Planet planet = planets.get(i);
+        Planet planet = getItem(i);
         planetViewHolder.nameTV.setText(planet.getName());
         planetViewHolder.distanceTV.setText("temp = " + String.valueOf(planet.getTemp()));
         planetViewHolder.photoIV.setImageResource(planet.getPhotoResId());
-    }
-
-    @Override
-    public int getItemCount() {
-        return planets.size();
     }
 
     class PlanetViewHolder extends RecyclerView.ViewHolder {

@@ -2,7 +2,7 @@ package com.example.kolys.homework2;
 
 public class Planet {
     private int photoResId;
-    private String name;
+    public String name;
     private String discription;
     private String weight;
     private int temp;
